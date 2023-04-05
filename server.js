@@ -31,10 +31,26 @@ app.use(express.static(__dirname + '/static'));
     res.sendFile(__dirname + '/index.html');
   });
 
+  function isValidUrl(string) {
+    try {
+      new URL(string);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
   app.post('/',async (req, res) => {
     try {
         let value = crypto.randomBytes(5).toString('hex');
+        if(!isValidUrl(req.body.url))
+        {
+          return res.status(400).send({
+            message : "Entered wrong url."
+          })
+        }
         let data = {
+            status : "ok",
             client: req.body.url,
             shorten: value
         }
@@ -48,7 +64,7 @@ app.use(express.static(__dirname + '/static'));
     }
   })
 
-  app.get('/shorten/:id',async(req,res)=>{
+  app.get('/s/:id',async(req,res)=>{
     try {
         let data = await shortenModel.findOne({shorten:req.params.id});
         if(data)

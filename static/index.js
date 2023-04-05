@@ -9,5 +9,5 @@ submit.addEventListener('click',async()=>{
         body: JSON.stringify({ url: `${value.value}`})
     })
     data = await data.json()
-    urlvalue.innerText = data.url
+    urlvalue.innerText = `short-jjwl.onrender.com/s/${data.url}`
 })

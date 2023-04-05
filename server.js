@@ -33,7 +33,7 @@ app.use(express.static(__dirname + '/static'));
 
   app.post('/',async (req, res) => {
     try {
-        let value = crypto.randomBytes(10).toString('hex');
+        let value = crypto.randomBytes(5).toString('hex');
         let data = {
             client: req.body.url,
             shorten: value

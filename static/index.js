@@ -9,5 +9,8 @@ submit.addEventListener('click',async()=>{
         body: JSON.stringify({ url: `${value.value}`})
     })
     data = await data.json()
+    if(data.status === "ok")
     urlvalue.innerText = `short-jjwl.onrender.com/s/${data.url}`
+    else
+    urlvalue.innerText = `${data.message}`
 })

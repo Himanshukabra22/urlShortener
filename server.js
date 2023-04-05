@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const cors = require("cors");
 const crypto = require("crypto")
 const app = express();
@@ -22,6 +23,7 @@ const dbconnect = require("./db/dbconnect.js");
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
+app.use(bodyParser.json())
 app.use(express.json());
 app.use(express.static(__dirname + '/static'));
   

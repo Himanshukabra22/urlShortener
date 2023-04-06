@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/static'));
 
   app.post('/',async (req, res) => {
     try {
-        let value = crypto.randomBytes(5).toString('hex');
+        let value = crypto.randomBytes(3).toString('hex');
         if(!isValidUrl(req.body.url))
         {
           return res.status(400).send({

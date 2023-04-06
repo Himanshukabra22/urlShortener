@@ -9,7 +9,7 @@ submit.addEventListener('click',async()=>{
     })
     data = await data.json()
     if(data.status === "ok")
-    value.value = `http://short-jjwl.onrender.com/s/${data.url}`
+    value.value = `https://s-url.onrender.com/s/${data.url}`
     else
     value.value = `${data.message}`
 })
